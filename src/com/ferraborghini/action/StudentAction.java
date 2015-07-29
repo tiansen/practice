@@ -30,11 +30,12 @@ public class StudentAction {
 	public String getAllStudent(){
 		System.out.println("ok");
 		List student_list = studentService.getAllStudent();
+		ActionContext.getContext().put("student_list", student_list);
 		if(student_list.isEmpty()){
 			System.out.println("ERROR");
 			return "ERROR";			
 		}
-		System.out.println("SUCCESS");
+		System.out.println("SUCCESS"+student_list.size());
 		return "SUCCESS";
 	}
 

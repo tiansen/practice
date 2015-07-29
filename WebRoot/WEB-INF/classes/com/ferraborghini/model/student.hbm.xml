@@ -8,7 +8,7 @@
     <class name="com.ferraborghini.model.Student" table="student" catalog="student_info">
         <id name="SId" type="java.lang.String">
             <column name="s_id" length="10" />
-            <generator class="sequence" />
+            <!-- 为什么自动生成的时候把这个当成自增的 -->
         </id>
         <property name="SName" type="java.lang.String">
             <column name="s_name" length="45" not-null="true" />
