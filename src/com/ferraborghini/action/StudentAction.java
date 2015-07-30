@@ -25,11 +25,15 @@ import lombok.Setter;
 @Scope("prototype")
 public class StudentAction {
 	// 使用Spring的注解，为类的成员变量赋值
+	@Setter @Getter
+	private List student_list;
 	@Resource @Setter @Getter
 	private StudentService studentService;
+	
+	
 	public String getAllStudent(){
 		System.out.println("ok");
-		List student_list = studentService.getAllStudent();
+		student_list = studentService.getAllStudent();
 		ActionContext.getContext().put("student_list", student_list);
 		if(student_list.isEmpty()){
 			System.out.println("ERROR");

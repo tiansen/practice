@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	<input id="show" type = 'text'>
   	<form action="loadAllStudent" method = "post">
-  		<input type = 'button'  value="submit">
+  		<input type = 'submit'  value="submit">
   	</form>
   	<div id = "showStudent" >
   	</div>
