@@ -29,17 +29,29 @@ public class StudentAction {
 	private List student_list;
 	@Resource @Setter @Getter
 	private StudentService studentService;
+	@Setter
+	private String SId;
+	@Setter
+	private String someValue;
+	@Setter
+	private String typeName;
 	
 	
 	public String getAllStudent(){
 		student_list = studentService.getAllStudent();
-		ActionContext.getContext().put("student_list", student_list);
+		//ActionContext.getContext().put("student_list", student_list);
 		if(student_list.isEmpty()){
 			return "ERROR";			
 		}
-		System.out.println("SUCCESS"+student_list.size());
 		return "SUCCESS";
 	}
-
+	public String updateStudentBySId(){
+		int statusOfUpdate = studentService.updateStudentBySId(SId,someValue,typeName);
+		if(statusOfUpdate==0){
+			return "ERROR";			
+		}
+		student_list = studentService.getAllStudent();
+		return "SUCCESS";
+	}
 
 }

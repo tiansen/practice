@@ -29,5 +29,15 @@ public class StudentService {
 		List list = this.baseDao.getAllStudent(hql);
 		return list;
 	}
-
+	/**
+	 * 更新修改后的数据
+	 * @param name
+	 * @param pass
+	 * @return
+	 */
+	public int updateStudentBySId(String SId,String someValue,String typeName){
+		String hql="from Student where SId ='"+SId+"'";
+		int statusOfUpdate = this.baseDao.updateStudentBySId(hql,someValue,typeName);
+		return statusOfUpdate;
+	}
 }
