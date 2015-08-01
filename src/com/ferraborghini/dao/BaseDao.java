@@ -48,9 +48,7 @@ public class BaseDao{
 	 * @return List
 	 */
 	public List getAllStudent(String hql){
-		System.out.println("dao");
 		List stu_list= this.hibernateTemplate.find(hql);
-		System.out.println("over");
 		return stu_list;
 	}
 	public HibernateTemplate getHibernateTemplate() {

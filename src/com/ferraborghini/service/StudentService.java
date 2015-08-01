@@ -26,7 +26,6 @@ public class StudentService {
 	@Transactional(propagation=Propagation.NOT_SUPPORTED,readOnly = true)
 	public List getAllStudent(){
 		String hql="from Student";
-		System.out.println("service");
 		List list = this.baseDao.getAllStudent(hql);
 		return list;
 	}
