@@ -27,10 +27,14 @@ public class StudentAction {
 	// 使用Spring的注解，为类的成员变量赋值
 	@Setter @Getter
 	private List student_list;
+	@Setter @Getter
+	private List student_all_list;
 	@Resource @Setter @Getter
 	private StudentService studentService;
-	@Setter
+	@Setter @Getter
 	private String SId;
+	@Setter @Getter
+	private String selectSId;
 	@Setter
 	private String someValue;
 	@Setter
@@ -39,6 +43,7 @@ public class StudentAction {
 	
 	public String getAllStudent(){
 		student_list = studentService.getAllStudent();
+		student_all_list = student_list;
 		//ActionContext.getContext().put("student_list", student_list);
 		if(student_list.isEmpty()){
 			return "ERROR";			
@@ -51,6 +56,15 @@ public class StudentAction {
 			return "ERROR";			
 		}
 		student_list = studentService.getAllStudent();
+		return "SUCCESS";
+	}
+	public String selectStudentBySId(){
+		student_all_list = studentService.getAllStudent();
+		student_list = studentService.selectStudentBySId(SId);
+		selectSId = SId;
+		if(student_list.isEmpty()){
+			return "ERROR";			
+		}
 		return "SUCCESS";
 	}
 

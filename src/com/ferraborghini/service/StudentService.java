@@ -40,4 +40,15 @@ public class StudentService {
 		int statusOfUpdate = this.baseDao.updateStudentBySId(hql,someValue,typeName);
 		return statusOfUpdate;
 	}
+	/**
+	 * 更新修改后的数据
+	 * @param name
+	 * @param pass
+	 * @return
+	 */
+	public List selectStudentBySId(String SId){
+		String hql="from Student where SId ='"+SId+"'";
+		List list = this.baseDao.getAllStudent(hql);
+		return list;
+	}
 }

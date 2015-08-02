@@ -10,5 +10,13 @@
 			<result name="ERROR">/ERROR.jsp</result>
 			<result name="SUCCESS">/showStudent.jsp</result>
 		</action>
+		<action name="selectStudentBySId" class = "studentAction" method="selectStudentBySId">
+			<result name="ERROR">/ERROR.jsp</result>
+			<result name="SUCCESS">/showStudent.jsp</result>
+		</action>
+		<action name="loadSelectStudent" class = "studentAction" method="getAllStudent">
+			<result name="ERROR">/ERROR.jsp</result>
+			<result name="SUCCESS">/selectDiv.jsp</result>
+		</action>
 	</package>
 </struts>    

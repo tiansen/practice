@@ -76,6 +76,7 @@ public class BaseDao{
 		}
 		return 1;
 	}
+
 	public HibernateTemplate getHibernateTemplate() {
 		return hibernateTemplate;
 	}

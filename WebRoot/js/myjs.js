@@ -42,3 +42,41 @@ function saveChange(typeName,id){
 		   });	
 	
 	}
+function selectChange(){
+	var objS = document.getElementById("selectSId");
+    var SId = objS.options[objS.selectedIndex].value;
+    if("0"==SId) fillWithWords();
+    else
+    $.ajax({
+        url:"selectStudentBySId",
+        type:"POST",
+        dataType:"html",
+        async: false,
+        data:{"SId":SId},
+        success:function(data) {  
+        	$("#showStudent").html(data);//对应ID用#，对应CLASS用.
+        },   
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+        	alert(textStatus);
+        	},
+        complete:function(data) {  
+        },
+	   });	
+}
+//暂时不用，逻辑有点问题
+function selectDivChange(){
+    $.ajax({
+        url:"loadSelectStudent",
+        type:"POST",
+        dataType:"html",
+        async: false,
+        success:function(data) {  
+        	$("#selectDiv").html(data);
+        },   
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+        	alert(textStatus);
+        	},
+        complete:function(data) {  
+        },
+	   });	
+}
