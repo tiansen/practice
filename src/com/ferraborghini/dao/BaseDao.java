@@ -63,7 +63,6 @@ public class BaseDao{
 	public int updateStudentBySId(String hql,String someValue,String typeName){
 		List stu_list= this.hibernateTemplate.find(hql);
 		Student stu = (Student)stu_list.get(0);
-		System.out.println(stu.getSId());
 		if ("SName".equals(typeName)) {
 			stu.setSName(someValue);
 		} else if("nation".equals(typeName)){

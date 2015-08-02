@@ -25,17 +25,20 @@ function saveChange(typeName,id){
 	    var SId = document.getElementById("SId"+id).value;
 		document.getElementById(typeName+id).readOnly=true;
 		var someValue = document.getElementById(typeName+id).value;
+		var objS = document.getElementById("selectSId");
+	    var selectedSId = objS.options[objS.selectedIndex].value;
 		$.ajax({
 	        url:"updateStudentBySId",
 	        type:"POST",
 	        dataType:"html",
 	        async: false,
-	        data:{"SId":SId,"someValue":someValue,"typeName":typeName},
+	        data:{"SId":SId,"someValue":someValue,"typeName":typeName,"selectedSId":selectedSId},
 	        success:function(data) {  
 	        	$("#showStudent").html(data);//对应ID用#，对应CLASS用.
 	        },   
 	        error: function(XMLHttpRequest, textStatus, errorThrown) {
 	        	alert(textStatus);
+	        	alert("here");
 	        	},
 	        complete:function(data) {  
 	        },

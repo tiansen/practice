@@ -35,6 +35,8 @@ public class StudentAction {
 	private String SId;
 	@Setter @Getter
 	private String selectSId;
+	@Setter @Getter
+	private String selectedSId;
 	@Setter
 	private String someValue;
 	@Setter
@@ -51,11 +53,34 @@ public class StudentAction {
 		return "SUCCESS";
 	}
 	public String updateStudentBySId(){
-		int statusOfUpdate = studentService.updateStudentBySId(SId,someValue,typeName);
-		if(statusOfUpdate==0){
-			return "ERROR";			
+		studentService.updateStudentBySId(SId,someValue,typeName);
+		student_all_list = studentService.getAllStudent();
+		student_list = student_all_list;
+		if(selectedSId.equals(SId)){
+			selectSId = SId;
+			student_list = studentService.selectStudentBySId(SId);
 		}
-		student_list = studentService.getAllStudent();
+		
+//		try {
+//			Process proc = Runtime.getRuntime().exec("python  C:\\Users\\TS\\Desktop\\test.py");
+//			System.out.println(proc.waitFor());
+//			InputStreamReader ir = new InputStreamReader(proc.getInputStream());
+//            LineNumberReader input = new LineNumberReader(ir);
+//            String line;
+//            System.out.println(input);
+//            while((line = input.readLine	()) != null)
+//                System.out.println(line);
+//            input.close();
+//            ir.close();
+//			
+//		} catch (Exception e) {
+//			
+//			e.printStackTrace();
+//		}  
+//		if(statusOfUpdate==0){
+//			return "ERROR";			
+//		}
+		
 		return "SUCCESS";
 	}
 	public String selectStudentBySId(){
