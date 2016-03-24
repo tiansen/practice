@@ -1,12 +1,16 @@
 package com.ferraborghini.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import lombok.Getter;
 import lombok.Setter;
 
 /**
  * Student entity. @author MyEclipse Persistence Tools
  */
-
+@Entity
+@Table(name="student")
 public class Student{
 
 	// Fields
